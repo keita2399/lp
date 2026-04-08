@@ -20,7 +20,7 @@ export default function Footer() {
           letterSpacing: "1px",
         }}
       >
-        © 2025 MATSUI KEITA
+        © 2026 MATSUI KEITA
       </span>
       <div style={{ display: "flex", gap: "24px" }}>
         <a
