@@ -1,9 +1,15 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
-// LP向けに厳選（flagshipカテゴリ優先、上位6件）
-const featured = projects.filter((p) => p.category === "flagship").slice(0, 6);
+// サムネイルがある実績を優先して厳選
+const featured = [
+  ...projects.filter((p) => p.category === "flagship"),
+  ...projects.filter((p) => p.category !== "flagship" && p.thumbnail),
+]
+  .filter((p) => p.thumbnail)
+  .slice(0, 6);
 
 export default function Works() {
   return (
@@ -11,7 +17,7 @@ export default function Works() {
       id="works"
       style={{
         padding: "120px 40px",
-        maxWidth: "900px",
+        maxWidth: "1100px",
         margin: "0 auto",
         width: "100%",
       }}
@@ -69,8 +75,8 @@ export default function Works() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-          gap: "2px",
+          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gap: "24px",
         }}
       >
         {featured.map((p) => (
@@ -82,70 +88,119 @@ export default function Works() {
             <div
               style={{
                 border: "1px solid var(--border)",
-                padding: "28px",
                 background: "var(--surface)",
-                transition: "border-color 0.2s",
+                borderRadius: "4px",
+                overflow: "hidden",
+                transition: "border-color 0.2s, box-shadow 0.2s",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                gap: "12px",
                 cursor: "pointer",
               }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--accent)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor =
-                  "var(--border)")
-              }
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "var(--accent)";
+                el.style.boxShadow = "0 8px 32px rgba(200,134,10,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "var(--border)";
+                el.style.boxShadow = "none";
+              }}
             >
-              <span
+              {/* サムネイル */}
+              <div
                 style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "10px",
-                  color: "var(--accent)",
-                  letterSpacing: "1px",
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  background: "#1a1a1a",
+                  overflow: "hidden",
                 }}
               >
-                {p.badge}
-              </span>
-              <h3
-                style={{
-                  fontSize: "16px",
-                  fontWeight: 700,
-                  color: "var(--text)",
-                  lineHeight: 1.4,
-                }}
-              >
-                {p.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "13px",
-                  color: "var(--muted)",
-                  lineHeight: 1.7,
-                  flexGrow: 1,
-                }}
-              >
-                {p.description}
-              </p>
-              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                {p.tags.slice(0, 3).map((tag) => (
+                <Image
+                  src={p.thumbnail!}
+                  alt={p.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                {/* バッジオーバーレイ */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "12px",
+                    left: "12px",
+                    background: "rgba(0,0,0,0.7)",
+                    backdropFilter: "blur(4px)",
+                    padding: "4px 10px",
+                    borderRadius: "2px",
+                  }}
+                >
                   <span
-                    key={tag}
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "10px",
-                      color: "var(--muted)",
-                      border: "1px solid var(--border)",
-                      padding: "2px 8px",
-                      borderRadius: "2px",
+                      color: "#c8860a",
+                      letterSpacing: "1px",
                     }}
                   >
-                    {tag}
+                    {p.badge}
                   </span>
-                ))}
+                </div>
+              </div>
+
+              {/* テキスト */}
+              <div
+                style={{
+                  padding: "24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  flexGrow: 1,
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "13px",
+                    color: "var(--muted)",
+                    lineHeight: 1.7,
+                    flexGrow: 1,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {p.description}
+                </p>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                  {p.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "10px",
+                        color: "var(--muted)",
+                        border: "1px solid var(--border)",
+                        padding: "2px 8px",
+                        borderRadius: "2px",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </Link>
