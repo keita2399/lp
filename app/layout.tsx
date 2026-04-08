@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { JsonLd } from "@/components/JsonLd";
 
 const BASE_URL = "https://lp-keita.vercel.app";
 
@@ -64,7 +66,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={ibmPlexMono.variable}>
-      <body>{children}</body>
+      <body>
+        <GoogleAnalytics />
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }
