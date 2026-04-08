@@ -36,7 +36,7 @@ export default function FAQ() {
       id="faq"
       style={{
         padding: "120px 40px",
-        background: "var(--surface)",
+        background: "var(--surface-alt)",
       }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>

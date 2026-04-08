@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --border: #222222;
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --surface-alt: #f4f3ef;
+  --border: #e5e3dc;
   --accent: #c8860a;
-  --accent-dim: rgba(200, 134, 10, 0.12);
-  --text: #f0ece4;
-  --muted: #888888;
+  --accent-dim: rgba(200, 134, 10, 0.1);
+  --text: #111111;
+  --muted: #777777;
   --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", monospace;
 }
 
