@@ -13,7 +13,7 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* グリッド上のグラデーションマスク（下をフェード） */}
+      {/* グラデーションマスク */}
       <div
         style={{
           position: "absolute",
@@ -24,7 +24,6 @@ export default function Hero() {
         }}
       />
 
-      {/* コンテンツ */}
       <div
         style={{
           position: "relative",
@@ -73,45 +72,22 @@ export default function Hero() {
         {/* メインコピー */}
         <h1
           style={{
-            fontSize: "clamp(44px, 8vw, 96px)",
+            fontSize: "clamp(36px, 6.5vw, 80px)",
             fontWeight: 800,
-            lineHeight: 1.05,
+            lineHeight: 1.1,
             letterSpacing: "-2px",
             marginBottom: "32px",
           }}
         >
-          アイデアを
+          やりたいことを伝えるだけで、
           <br />
-          <span
-            style={{
-              color: "var(--accent)",
-              position: "relative",
-              display: "inline-block",
-            }}
-          >
-            すぐ動く
-            {/* アンダーライン装飾 */}
-            <svg
-              viewBox="0 0 200 12"
-              style={{
-                position: "absolute",
-                bottom: "-4px",
-                left: 0,
-                width: "100%",
-                height: "10px",
-              }}
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,8 Q50,2 100,7 Q150,12 200,6"
-                fill="none"
-                stroke="rgba(200,134,10,0.4)"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
+          <span style={{ color: "var(--accent)", position: "relative", display: "inline-block" }}>
+            動くシステム
+            <svg viewBox="0 0 200 12" style={{ position: "absolute", bottom: "-4px", left: 0, width: "100%", height: "10px" }} preserveAspectRatio="none">
+              <path d="M0,8 Q50,2 100,7 Q150,12 200,6" fill="none" stroke="rgba(200,134,10,0.4)" strokeWidth="3" strokeLinecap="round" />
             </svg>
           </span>
-          プロダクトに。
+          が手に入る。
         </h1>
 
         {/* サブコピー */}
@@ -119,14 +95,33 @@ export default function Hero() {
           style={{
             fontSize: "clamp(15px, 1.8vw, 18px)",
             color: "var(--muted)",
-            maxWidth: "520px",
-            lineHeight: 1.85,
-            marginBottom: "48px",
+            maxWidth: "560px",
+            lineHeight: 1.9,
+            marginBottom: "16px",
           }}
         >
-          TypeScript・Next.js・AIを軸に、Webアプリ・業務システム・
-          AIプロダクトを設計から開発・リリースまで一貫して担います。
+          40年の業務システム経験 × AI協働開発。
+          <br />
+          企画から運用まで、一人でチーム規模の成果を出します。
         </p>
+
+        {/* 実績バッジ */}
+        <div style={{ display: "flex", gap: "24px", marginBottom: "48px", flexWrap: "wrap" }}>
+          {[
+            { num: "40年", label: "開発経験" },
+            { num: "13言語", label: "レガシー対応" },
+            { num: "44万行+", label: "変換実績" },
+          ].map((stat) => (
+            <div key={stat.label} style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "20px", fontWeight: 700, color: "var(--accent)", letterSpacing: "-0.5px" }}>
+                {stat.num}
+              </span>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: "1px" }}>
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {/* CTA */}
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "72px" }}>
@@ -135,7 +130,6 @@ export default function Hero() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
               padding: "14px 32px",
               background: "var(--accent)",
               color: "#ffffff",
@@ -143,8 +137,8 @@ export default function Hero() {
               fontSize: "14px",
               textDecoration: "none",
               borderRadius: "4px",
-              transition: "opacity 0.2s",
               boxShadow: "0 4px 20px rgba(200,134,10,0.3)",
+              transition: "opacity 0.2s",
             }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.88")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
@@ -156,7 +150,6 @@ export default function Hero() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
               padding: "14px 32px",
               background: "var(--surface)",
               color: "var(--text)",
@@ -175,50 +168,13 @@ export default function Hero() {
         </div>
 
         {/* スタックバー */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0",
-            borderTop: "1px solid var(--border)",
-            paddingTop: "28px",
-            flexWrap: "wrap",
-            rowGap: "12px",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              color: "var(--muted)",
-              letterSpacing: "2px",
-              marginRight: "24px",
-              flexShrink: 0,
-            }}
-          >
+        <div style={{ borderTop: "1px solid var(--border)", paddingTop: "28px", display: "flex", alignItems: "center", flexWrap: "wrap", rowGap: "12px" }}>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: "2px", marginRight: "24px", flexShrink: 0 }}>
             TECH STACK
           </span>
-          {[
-            "TypeScript",
-            "Next.js",
-            "React",
-            "PostgreSQL",
-            "Claude API",
-            "Gemini API",
-            "Vercel",
-            "AWS",
-          ].map((tech, i) => (
+          {["TypeScript", "Next.js", "React", "PostgreSQL", "Claude API", "Gemini API", "Vercel", "AWS"].map((tech, i) => (
             <span key={tech} style={{ display: "flex", alignItems: "center" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "12px",
-                  color: "var(--muted)",
-                  padding: "0 16px",
-                  borderRight: i < 7 ? "1px solid var(--border)" : "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--muted)", padding: "0 16px", borderRight: i < 7 ? "1px solid var(--border)" : "none", whiteSpace: "nowrap" }}>
                 {tech}
               </span>
             </span>
