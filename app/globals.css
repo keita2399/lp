@@ -6,7 +6,8 @@
   --surface-alt: #f4f3ef;
   --border: #e5e3dc;
   --accent: #c8860a;
-  --accent-dim: rgba(200, 134, 10, 0.1);
+  --accent-dim: rgba(200, 134, 10, 0.08);
+  --accent-mid: rgba(200, 134, 10, 0.18);
   --text: #111111;
   --muted: #777777;
   --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", monospace;
@@ -36,12 +37,14 @@ body {
   color: var(--text);
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* グリッドパターン背景（Heroで使用） */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
