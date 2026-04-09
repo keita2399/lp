@@ -31,9 +31,9 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: scrolled ? "rgba(250,250,248,0.95)" : "transparent",
+        background: scrolled ? "rgba(15,23,42,0.92)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
         transition: "all 0.3s ease",
       }}
     >
@@ -43,7 +43,7 @@ export default function Navbar() {
           fontFamily: "var(--font-mono)",
           fontSize: "14px",
           fontWeight: 700,
-          color: "var(--accent)",
+          color: "var(--accent-light)",
           textDecoration: "none",
           letterSpacing: "2px",
         }}
@@ -58,16 +58,16 @@ export default function Navbar() {
             href={l.href}
             style={{
               fontSize: "13px",
-              color: "var(--muted)",
+              color: "rgba(203,213,225,0.7)",
               textDecoration: "none",
               letterSpacing: "1px",
               transition: "color 0.2s",
             }}
             onMouseEnter={(e) =>
-              ((e.target as HTMLElement).style.color = "var(--text)")
+              ((e.target as HTMLElement).style.color = "#93c5fd")
             }
             onMouseLeave={(e) =>
-              ((e.target as HTMLElement).style.color = "var(--muted)")
+              ((e.target as HTMLElement).style.color = "rgba(203,213,225,0.7)")
             }
           >
             {l.label}

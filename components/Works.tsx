@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/data/projects";
 
-// サムネイルがある実績を優先して厳選
 const featured = [
   ...projects.filter((p) => p.category === "flagship"),
   ...projects.filter((p) => p.category !== "flagship" && p.thumbnail),
@@ -22,7 +21,6 @@ export default function Works() {
         width: "100%",
       }}
     >
-      {/* セクションヘッダー */}
       <div
         style={{
           display: "flex",
@@ -37,19 +35,20 @@ export default function Works() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              color: "var(--accent)",
-              letterSpacing: "3px",
+              fontSize: "10px",
+              color: "rgba(147,197,253,0.8)",
+              letterSpacing: "4px",
               marginBottom: "16px",
             }}
           >
-            WORKS
+            // WORKS
           </p>
           <h2
             style={{
               fontSize: "clamp(28px, 4vw, 42px)",
               fontWeight: 700,
               letterSpacing: "-0.5px",
+              color: "#fff",
             }}
           >
             開発実績
@@ -60,18 +59,18 @@ export default function Works() {
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "12px",
-            color: "var(--accent)",
+            color: "#93c5fd",
             textDecoration: "none",
             letterSpacing: "1px",
-            borderBottom: "1px solid var(--accent)",
+            borderBottom: "1px solid rgba(147,197,253,0.4)",
             paddingBottom: "2px",
+            transition: "color 0.2s, border-color 0.2s",
           }}
         >
           すべて見る →
         </Link>
       </div>
 
-      {/* カードグリッド */}
       <div
         style={{
           display: "grid",
@@ -87,11 +86,12 @@ export default function Works() {
           >
             <div
               style={{
-                border: "1px solid var(--border)",
-                background: "var(--surface)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                background: "rgba(255,255,255,0.05)",
+                backdropFilter: "blur(12px)",
                 borderRadius: "4px",
                 overflow: "hidden",
-                transition: "border-color 0.2s, box-shadow 0.2s",
+                transition: "border-color 0.2s, box-shadow 0.2s, background 0.2s",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
@@ -99,22 +99,23 @@ export default function Works() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--accent)";
-                el.style.boxShadow = "0 8px 32px rgba(200,134,10,0.1)";
+                el.style.borderColor = "rgba(59,130,246,0.5)";
+                el.style.boxShadow = "0 8px 32px rgba(37,99,235,0.15)";
+                el.style.background = "rgba(255,255,255,0.08)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--border)";
+                el.style.borderColor = "rgba(255,255,255,0.12)";
                 el.style.boxShadow = "none";
+                el.style.background = "rgba(255,255,255,0.05)";
               }}
             >
-              {/* サムネイル */}
               <div
                 style={{
                   position: "relative",
                   width: "100%",
                   aspectRatio: "16/9",
-                  background: "#1a1a1a",
+                  background: "rgba(15,23,42,0.8)",
                   overflow: "hidden",
                 }}
               >
@@ -125,23 +126,23 @@ export default function Works() {
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                {/* バッジオーバーレイ */}
                 <div
                   style={{
                     position: "absolute",
                     top: "12px",
                     left: "12px",
-                    background: "rgba(0,0,0,0.7)",
+                    background: "rgba(0,0,0,0.75)",
                     backdropFilter: "blur(4px)",
                     padding: "4px 10px",
                     borderRadius: "2px",
+                    border: "1px solid rgba(255,255,255,0.1)",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "10px",
-                      color: "#c8860a",
+                      color: "#93c5fd",
                       letterSpacing: "1px",
                     }}
                   >
@@ -150,7 +151,6 @@ export default function Works() {
                 </div>
               </div>
 
-              {/* テキスト */}
               <div
                 style={{
                   padding: "24px",
@@ -164,7 +164,7 @@ export default function Works() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "var(--text)",
+                    color: "#fff",
                     lineHeight: 1.4,
                   }}
                 >
@@ -173,7 +173,7 @@ export default function Works() {
                 <p
                   style={{
                     fontSize: "13px",
-                    color: "var(--muted)",
+                    color: "rgba(148,163,184,0.85)",
                     lineHeight: 1.7,
                     flexGrow: 1,
                     display: "-webkit-box",
@@ -191,8 +191,9 @@ export default function Works() {
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "10px",
-                        color: "var(--muted)",
-                        border: "1px solid var(--border)",
+                        color: "rgba(147,197,253,0.7)",
+                        border: "1px solid rgba(59,130,246,0.25)",
+                        background: "rgba(59,130,246,0.08)",
                         padding: "2px 8px",
                         borderRadius: "2px",
                       }}

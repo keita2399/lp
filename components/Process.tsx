@@ -37,35 +37,34 @@ export default function Process() {
       id="process"
       style={{
         padding: "120px 40px",
-        background: "var(--surface-alt)",
+        background: "rgba(255,255,255,0.02)",
       }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        {/* セクションヘッダー */}
         <div style={{ marginBottom: "64px" }}>
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              color: "var(--accent)",
-              letterSpacing: "3px",
+              fontSize: "10px",
+              color: "rgba(147,197,253,0.8)",
+              letterSpacing: "4px",
               marginBottom: "16px",
             }}
           >
-            PROCESS
+            // PROCESS
           </p>
           <h2
             style={{
               fontSize: "clamp(28px, 4vw, 42px)",
               fontWeight: 700,
               letterSpacing: "-0.5px",
+              color: "#fff",
             }}
           >
             依頼から納品まで
           </h2>
         </div>
 
-        {/* ステップ */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
           {steps.map((s, i) => (
             <div
@@ -78,7 +77,6 @@ export default function Process() {
                 position: "relative",
               }}
             >
-              {/* 左列：番号と縦線 */}
               <div
                 style={{
                   display: "flex",
@@ -92,13 +90,14 @@ export default function Process() {
                     width: "40px",
                     height: "40px",
                     borderRadius: "50%",
-                    border: "1px solid var(--accent)",
+                    border: "1px solid #3b82f6",
+                    background: "rgba(59,130,246,0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontFamily: "var(--font-mono)",
                     fontSize: "11px",
-                    color: "var(--accent)",
+                    color: "#93c5fd",
                     flexShrink: 0,
                     letterSpacing: "1px",
                   }}
@@ -111,14 +110,13 @@ export default function Process() {
                       width: "1px",
                       flexGrow: 1,
                       minHeight: "40px",
-                      background: "var(--border)",
+                      background: "rgba(255,255,255,0.1)",
                       marginTop: "8px",
                     }}
                   />
                 )}
               </div>
 
-              {/* 右列：コンテンツ */}
               <div style={{ paddingTop: "8px" }}>
                 <div
                   style={{
@@ -132,6 +130,7 @@ export default function Process() {
                     style={{
                       fontSize: "18px",
                       fontWeight: 700,
+                      color: "#fff",
                     }}
                   >
                     {s.title}
@@ -140,7 +139,7 @@ export default function Process() {
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "11px",
-                      color: "var(--accent)",
+                      color: "#93c5fd",
                       letterSpacing: "0.5px",
                     }}
                   >
@@ -149,7 +148,7 @@ export default function Process() {
                 </div>
                 <p
                   style={{
-                    color: "var(--muted)",
+                    color: "rgba(148,163,184,0.9)",
                     fontSize: "14px",
                     lineHeight: 1.8,
                     maxWidth: "560px",

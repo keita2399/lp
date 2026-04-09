@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fafaf8;
-  --surface: #ffffff;
-  --surface-alt: #f4f3ef;
-  --border: #e5e3dc;
-  --accent: #c8860a;
-  --accent-dim: rgba(200, 134, 10, 0.08);
-  --accent-mid: rgba(200, 134, 10, 0.18);
-  --text: #111111;
-  --muted: #777777;
+  --bg: #0f172a;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-alt: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #3b82f6;
+  --accent-light: #93c5fd;
+  --accent-dim: rgba(59, 130, 246, 0.10);
+  --accent-mid: rgba(59, 130, 246, 0.20);
+  --text: rgba(203, 213, 225, 0.95);
+  --muted: rgba(148, 163, 184, 0.85);
+  --white: #ffffff;
   --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", monospace;
 }
 
@@ -34,17 +36,17 @@ body {
 
 ::selection {
   background: var(--accent-dim);
-  color: var(--text);
+  color: var(--white);
 }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
 /* グリッドパターン背景（Heroで使用） */
 .bg-grid {
   background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }

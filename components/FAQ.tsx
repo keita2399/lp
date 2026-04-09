@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "開発期間はどのくらいですか？",
-    a: "小規模なツールで2〜4週間、中規模のWebアプリで1〜2ヶ月が目安です。AIをフル活用した開発で、通常より速く進められます。建設業向けSaaSを3ヶ月で本番稼働させた実績があります。",
+    a: "小規模なツールで2〜4週間、中規模のWebアプリで1〜2ヶ月が目安です。AIをフル活用した開発で、通常より速く進められます。BtoB業種特化マッチングSaaSでは136人日の見積もりをAI協働開発で2週間強に短縮した実績があります。",
   },
   {
     q: "AIを使った開発とはどういう意味ですか？",
@@ -34,21 +34,21 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      style={{ padding: "120px 40px", background: "var(--surface-alt)" }}
+      style={{ padding: "120px 40px", background: "rgba(255,255,255,0.02)" }}
     >
       <div style={{ maxWidth: "960px", margin: "0 auto" }}>
         <div style={{ marginBottom: "64px" }}>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--accent)", letterSpacing: "3px", marginBottom: "16px" }}>
-            FAQ
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "rgba(147,197,253,0.8)", letterSpacing: "4px", marginBottom: "16px" }}>
+            // FAQ
           </p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, letterSpacing: "-1px" }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, letterSpacing: "-1px", color: "#fff" }}>
             よくある質問
           </h2>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           {faqs.map((faq, i) => (
-            <div key={i} style={{ borderBottom: "1px solid var(--border)" }}>
+            <div key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 style={{
@@ -64,15 +64,15 @@ export default function FAQ() {
                   gap: "16px",
                 }}
               >
-                <span style={{ fontSize: "15px", fontWeight: 600, color: "var(--text)" }}>
+                <span style={{ fontSize: "15px", fontWeight: 600, color: "rgba(203,213,225,0.95)" }}>
                   {faq.q}
                 </span>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "18px", color: "var(--accent)", flexShrink: 0, transition: "transform 0.2s", transform: open === i ? "rotate(45deg)" : "rotate(0)", display: "inline-block" }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "18px", color: "#93c5fd", flexShrink: 0, transition: "transform 0.2s", transform: open === i ? "rotate(45deg)" : "rotate(0)", display: "inline-block" }}>
                   +
                 </span>
               </button>
               {open === i && (
-                <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.85, paddingBottom: "24px", maxWidth: "680px" }}>
+                <p style={{ fontSize: "14px", color: "rgba(148,163,184,0.9)", lineHeight: 1.85, paddingBottom: "24px", maxWidth: "680px" }}>
                   {faq.a}
                 </p>
               )}
