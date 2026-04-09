@@ -342,7 +342,7 @@ export const projects: Project[] = [
     badgeColor: "#6366f1",
     borderColor: "#6366f1",
     externalUrl: "https://ai-document-checker-keita2399s-projects.vercel.app",
-    thumbnail: "/thumbnails/ai-document-checker.svg",
+    thumbnail: "/thumbnails/ai-document-checker.png",
     description:
       "Gemini Vision APIを使った書類自動解析アプリ。画像をアップロードするだけで、AIが書類の種類・記載内容・有効期限・注意点を自動判定。建設業許可証など業務書類の確認を効率化。",
     stats: ["Gemini Vision API", "画像→構造化データ"],
@@ -525,7 +525,7 @@ export const projects: Project[] = [
     badgeColor: "#06c755",
     borderColor: "#06c755",
     externalUrl: "/demo/chat",
-    thumbnail: "/thumbnails/line-claude-sync.svg",
+    thumbnail: "/thumbnails/line-claude-sync.png",
     description:
       "移動中にスマホで思いついたアイデアを、LINEでAIに伝えるだけでPCの開発環境に自動で共有。「いつでもどこでも開発を止めない」ワークフローを実現した、自分のために作ったツール。",
     stats: ["LINE → Gist → CLI 自動同期", "Gemini/Claude 切替"],
