@@ -133,152 +133,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "dx-proposal",
-    category: "tools",
-    title: "DX提案アシスタント",
-    badge: "社内ツール",
-    badgeColor: "#2563eb",
-    borderColor: "#2563eb",
-    thumbnail: "/thumbnails/dx-proposal-flow.png",
-    externalUrl: "https://estimate-ai-xi.vercel.app/flow",
-    description:
-      "業務の流れを言葉で説明するだけで、AIが業務フロー図を自動生成し、ボトルネックを分析、システム化の提案書を作成します。発注者との初回打ち合わせで「その場で提案書」が出せる営業ツール。",
-    stats: ["業務フロー図自動生成", "ボトルネック分析", "要件定義書生成"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "Claude API", "AI活用", "SSE"],
-    updatedAt: "2026-04-03",
-    githubRepo: "keita2399/estimate-ai",
-    detail: {
-      overview:
-        "業務内容をテキストで入力するだけで、6段階AIパイプラインが業務フロー図の自動生成 → ボトルネック分析 → システム化提案 → 要件定義書生成まで一気通貫で実行。",
-      challenges: [
-        "曖昧な業務記述から正確なフロー図を生成するプロンプト設計",
-        "Vercel Hobbyプランの60秒制限対策",
-        "Gemini API無料枠の制限対策（複数キー + Claude フォールバック）",
-      ],
-      approach: [
-        "6段階AIパイプライン（フロー図→現状分析→提案→質問→要件定義→総合提案）",
-        "フロー図はMermaid記法で生成しSVGレンダリング",
-        "Gemini / Claude のデュアルAI構成（SSEストリーミング）",
-      ],
-      results: [
-        "業務分析から提案書・要件定義書まで5分で完成",
-        "DX提案書・要件定義書・概算見積書の自動生成",
-      ],
-      techDetail: "Next.js + TypeScript + Tailwind CSS。Gemini 2.5 Flash / Claude Haiku 4.5 のデュアルAI構成（SSEストリーミング）。フロー図はMermaid記法で生成しSVGレンダリング。",
-    },
-  },
-  {
-    slug: "ai-estimate",
-    category: "tools",
-    title: "AI見積もりアシスタント",
-    badge: "社内ツール",
-    badgeColor: "#4f46e5",
-    borderColor: "#4f46e5",
-    thumbnail: "/thumbnails/dx-proposal-summary.png",
-    externalUrl: "https://estimate-ai-xi.vercel.app/estimate",
-    description:
-      "作りたいアプリを説明するだけで、画面設計・技術選定・工数見積もりを自動生成。一般的な開発会社とAI活用開発の見積もりを並べて比較でき、製造資料（DB設計・API設計）まで自動出力。",
-    stats: ["一般版/リベルタ版の2モード見積もり", "製造資料自動生成", "画面設計・技術選定"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "Claude API", "AI活用", "SSE"],
-    updatedAt: "2026-04-03",
-    githubRepo: "keita2399/estimate-ai",
-    detail: {
-      overview:
-        "作りたいシステムを説明するだけで、画面設計 → 技術スタック比較 → 一般版/リベルタ版の2モード工数見積もり → 製造資料（DB設計・API設計・実装順序）の自動生成まで一気通貫で実行。",
-      challenges: [
-        "一般的な開発会社とAI活用開発の2モード見積もりの係数設計",
-        "Vercel Hobbyプランの60秒制限 + Render無料プランのスリープ対策",
-      ],
-      approach: [
-        "一般版（100%）とリベルタ版（50-60%）を並行生成・タブ切替表示",
-        "製造資料: 画面設計+技術スタックからDB設計・API設計・実装順序をMarkdown出力",
-        "Renderリトライ・起動待ち処理でスリープ対策",
-      ],
-      results: [
-        "見積もり・製造資料まで5分で完成",
-        "一般版/リベルタ版の比較で「AI活用の価値」を可視化",
-      ],
-      techDetail: "Next.js + TypeScript + Tailwind CSS。Gemini 2.5 Flash / Claude Haiku 4.5 のデュアルAI構成（SSEストリーミング）。バックエンドはExpress.js（Render）でAI API呼び出しを集約。",
-    },
-  },
-
-  {
-    slug: "excel-to-web",
-    category: "tools",
-    title: "Excel → Web/GAS化",
-    badge: "デモ公開中",
-    badgeColor: "#059669",
-    borderColor: "#059669",
-    thumbnail: "/thumbnails/estimate-ai-stack.png",
-    screenshots: [],
-    description:
-      "Excelファイルをアップロードするだけで、AIがシート構造・数式・VBAマクロを読み解き、Webアプリ化またはGAS化の提案と動作するプロトタイプを自動生成。VBA・ActiveXにも対応。",
-    stats: ["Excel構造自動分析", "Web/GASプロトタイプ自動生成", "VBA/ActiveX対応"],
-    tags: ["Next.js", "TypeScript", "SheetJS", "Gemini API", "CFB", "AI活用"],
-    detail: {
-      overview:
-        "「Excelで管理しているけど限界が来ている」業務を、Webアプリに変換するツール。Excelファイル（xlsx/xls/xlsm）をアップロードすると、AIがシート構造・列定義・数式・VBAマクロを解析し、業務目的の推定・課題の指摘・Web化提案・動作するHTMLプロトタイプの生成までを自動で行う。生成されたプロトタイプはCRUD操作・検索・集計が実際に動作し、「Excelがこう変わります」をその場で体験できる。分析結果はそのままAI見積もりアシスタントに連携し、概算工数・費用まで一気通貫で算出可能。",
-      challenges: [
-        "Excelの多様なフォーマット（管理表・帳票・マスタ等）から業務目的を正確に推定",
-        "VBAマクロのバイナリからソースコードを抽出するCFBパース処理",
-        "AIが生成するHTMLプロトタイプの品質確保（CRUD・集計・レスポンシブ対応）",
-        "大きなExcelファイルのクライアント側解析とAPI送信サイズの最適化",
-      ],
-      approach: [
-        "クライアント側でSheetJSによるExcel解析 → 構造情報のみをAPIに送信（413エラー対策）",
-        "VBAマクロはSheetJS bookVBAオプション + CFBライブラリでソースコード抽出",
-        "Gemini Streaming APIで長時間処理もタイムアウトなく安定動作",
-        "Excel↔Webの機能マッピングをビフォーアフター形式で視覚的に対比表示",
-        "分析結果からsessionStorage経由でAI見積もりアシスタントにシームレス連携",
-      ],
-      results: [
-        "Excelをアップするだけで、数分でWebアプリのプロトタイプが完成",
-        "Excel構造分析・Web化提案・プロトタイプ・見積もりまで一気通貫",
-        "VBAマクロのロジックもJavaScriptで再実装したプロトタイプを生成",
-        "DX提案アシスタントと統合し、テキスト入力・Excelアップロードの2つの入口を提供",
-      ],
-      techDetail: "Next.js + TypeScript + Tailwind CSS。SheetJS（xlsx）でクライアント側Excel解析。CFBライブラリでVBAマクロのバイナリからソースコード抽出。Gemini 2.5 Flash Streaming API。プロトタイプはTailwind CSS CDN + vanilla JSの単一HTMLとして生成。",
-    },
-  },
-  // === 技術デモ ===
-  {
-    slug: "portfolio-chatbot",
-    category: "tools",
-    title: "AIチャットボット（このサイト）",
-    badge: "このサイトで稼働中",
-    badgeColor: "#c8860a",
-    borderColor: "#c8860a",
-    description:
-      "このポートフォリオサイトに搭載されたAIアシスタント。右下の💬ボタンから、スキル・実績・受けたい案件について何でも質問可能。業務経歴書の全情報をナレッジベースとしてGemini AIに渡し、正確かつ親しみやすく回答。",
-    stats: ["Gemini 2.5 Flash", "業務経歴ナレッジベース"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "AI活用"],
-    updatedAt: "2026-04-07",
-    githubRepo: "keita2399/portfolio",
-    detail: {
-      overview:
-        "ポートフォリオサイトの訪問者が、スキル・実績・受けたい案件について自由に質問できるAIチャットボット。業務経歴書の全情報（40年分のプロジェクト履歴、スキル、業務知識等）をprofile.mdとしてGemini AIに渡し、RAG的にナレッジベースとして活用。プロフィールにない情報は「お問い合わせください」と正直に回答する設計。",
-      challenges: [
-        "業務経歴書の情報量（30件以上のプロジェクト）を正確に伝えるプロンプト設計",
-        "Markdownで返答すると小さなチャット窓では見づらい問題",
-        "既存のLINE Claude Syncデモ用APIとの共存",
-        "IME確定時のEnter誤送信防止",
-      ],
-      approach: [
-        "業務経歴書をprofile.mdに構造化し、システムプロンプトに全文注入",
-        "プレーンテキスト限定の回答ルールで視認性を確保",
-        "APIパスを/api/portfolio-chatに分離し既存機能と共存",
-        "isComposingチェックで日本語入力時のEnter誤送信を防止",
-      ],
-      results: [
-        "訪問者がスキル・実績を対話的に把握できるUXを実現",
-        "40年分の業務経歴から的確な回答を生成",
-        "Gemini無料枠で運用コストゼロ",
-        "フローティングボタン型UIでページ遷移なしに利用可能",
-      ],
-      techDetail: "Next.js API Route + Gemini 2.5 Flash。profile.md（業務経歴書）をビルド時に読み込み、システムプロンプトに注入するRAG的アプローチ。会話履歴（直近10件）をコンテキストに含めて文脈を維持。",
-    },
-  },
-  {
     slug: "contract-checker",
     category: "tools",
     title: "AI契約書チェッカー",
@@ -316,7 +170,113 @@ export const projects: Project[] = [
       ],
       techDetail: "Next.js + TypeScript + Tailwind CSS + Gemini 2.5 Flash（Vision API）。契約書リスクの体系的なプロンプト設計が核心。",
     },
+  },  {
+    slug: "dx-proposal",
+    category: "tools",
+    title: "DX提案アシスタント",
+    badge: "社内ツール",
+    badgeColor: "#2563eb",
+    borderColor: "#2563eb",
+    thumbnail: "/thumbnails/dx-proposal-flow.png",
+    externalUrl: "https://estimate-ai-xi.vercel.app/flow",
+    description:
+      "業務の流れを言葉で説明するだけで、AIが業務フロー図を自動生成し、ボトルネックを分析、システム化の提案書を作成します。発注者との初回打ち合わせで「その場で提案書」が出せる営業ツール。",
+    stats: ["業務フロー図自動生成", "ボトルネック分析", "要件定義書生成"],
+    tags: ["Next.js", "TypeScript", "Gemini API", "Claude API", "AI活用", "SSE"],
+    updatedAt: "2026-04-03",
+    githubRepo: "keita2399/estimate-ai",
+    detail: {
+      overview:
+        "業務内容をテキストで入力するだけで、6段階AIパイプラインが業務フロー図の自動生成 → ボトルネック分析 → システム化提案 → 要件定義書生成まで一気通貫で実行。",
+      challenges: [
+        "曖昧な業務記述から正確なフロー図を生成するプロンプト設計",
+        "Vercel Hobbyプランの60秒制限対策",
+        "Gemini API無料枠の制限対策（複数キー + Claude フォールバック）",
+      ],
+      approach: [
+        "6段階AIパイプライン（フロー図→現状分析→提案→質問→要件定義→総合提案）",
+        "フロー図はMermaid記法で生成しSVGレンダリング",
+        "Gemini / Claude のデュアルAI構成（SSEストリーミング）",
+      ],
+      results: [
+        "業務分析から提案書・要件定義書まで5分で完成",
+        "DX提案書・要件定義書・概算見積書の自動生成",
+      ],
+      techDetail: "Next.js + TypeScript + Tailwind CSS。Gemini 2.5 Flash / Claude Haiku 4.5 のデュアルAI構成（SSEストリーミング）。フロー図はMermaid記法で生成しSVGレンダリング。",
+    },
   },
+  {
+    slug: "excel-to-web",
+    category: "tools",
+    title: "Excel → Web/GAS化",
+    badge: "デモ公開中",
+    badgeColor: "#059669",
+    borderColor: "#059669",
+    thumbnail: "/thumbnails/estimate-ai-stack.png",
+    screenshots: [],
+    description:
+      "Excelファイルをアップロードするだけで、AIがシート構造・数式・VBAマクロを読み解き、Webアプリ化またはGAS化の提案と動作するプロトタイプを自動生成。VBA・ActiveXにも対応。",
+    stats: ["Excel構造自動分析", "Web/GASプロトタイプ自動生成", "VBA/ActiveX対応"],
+    tags: ["Next.js", "TypeScript", "SheetJS", "Gemini API", "CFB", "AI活用"],
+    detail: {
+      overview:
+        "「Excelで管理しているけど限界が来ている」業務を、Webアプリに変換するツール。Excelファイル（xlsx/xls/xlsm）をアップロードすると、AIがシート構造・列定義・数式・VBAマクロを解析し、業務目的の推定・課題の指摘・Web化提案・動作するHTMLプロトタイプの生成までを自動で行う。生成されたプロトタイプはCRUD操作・検索・集計が実際に動作し、「Excelがこう変わります」をその場で体験できる。分析結果はそのままAI見積もりアシスタントに連携し、概算工数・費用まで一気通貫で算出可能。",
+      challenges: [
+        "Excelの多様なフォーマット（管理表・帳票・マスタ等）から業務目的を正確に推定",
+        "VBAマクロのバイナリからソースコードを抽出するCFBパース処理",
+        "AIが生成するHTMLプロトタイプの品質確保（CRUD・集計・レスポンシブ対応）",
+        "大きなExcelファイルのクライアント側解析とAPI送信サイズの最適化",
+      ],
+      approach: [
+        "クライアント側でSheetJSによるExcel解析 → 構造情報のみをAPIに送信（413エラー対策）",
+        "VBAマクロはSheetJS bookVBAオプション + CFBライブラリでソースコード抽出",
+        "Gemini Streaming APIで長時間処理もタイムアウトなく安定動作",
+        "Excel↔Webの機能マッピングをビフォーアフター形式で視覚的に対比表示",
+        "分析結果からsessionStorage経由でAI見積もりアシスタントにシームレス連携",
+      ],
+      results: [
+        "Excelをアップするだけで、数分でWebアプリのプロトタイプが完成",
+        "Excel構造分析・Web化提案・プロトタイプ・見積もりまで一気通貫",
+        "VBAマクロのロジックもJavaScriptで再実装したプロトタイプを生成",
+        "DX提案アシスタントと統合し、テキスト入力・Excelアップロードの2つの入口を提供",
+      ],
+      techDetail: "Next.js + TypeScript + Tailwind CSS。SheetJS（xlsx）でクライアント側Excel解析。CFBライブラリでVBAマクロのバイナリからソースコード抽出。Gemini 2.5 Flash Streaming API。プロトタイプはTailwind CSS CDN + vanilla JSの単一HTMLとして生成。",
+    },
+  },  {
+    slug: "ai-estimate",
+    category: "tools",
+    title: "AI見積もりアシスタント",
+    badge: "社内ツール",
+    badgeColor: "#4f46e5",
+    borderColor: "#4f46e5",
+    thumbnail: "/thumbnails/dx-proposal-summary.png",
+    externalUrl: "https://estimate-ai-xi.vercel.app/estimate",
+    description:
+      "作りたいアプリを説明するだけで、画面設計・技術選定・工数見積もりを自動生成。一般的な開発会社とAI活用開発の見積もりを並べて比較でき、製造資料（DB設計・API設計）まで自動出力。",
+    stats: ["一般版/リベルタ版の2モード見積もり", "製造資料自動生成", "画面設計・技術選定"],
+    tags: ["Next.js", "TypeScript", "Gemini API", "Claude API", "AI活用", "SSE"],
+    updatedAt: "2026-04-03",
+    githubRepo: "keita2399/estimate-ai",
+    detail: {
+      overview:
+        "作りたいシステムを説明するだけで、画面設計 → 技術スタック比較 → 一般版/リベルタ版の2モード工数見積もり → 製造資料（DB設計・API設計・実装順序）の自動生成まで一気通貫で実行。",
+      challenges: [
+        "一般的な開発会社とAI活用開発の2モード見積もりの係数設計",
+        "Vercel Hobbyプランの60秒制限 + Render無料プランのスリープ対策",
+      ],
+      approach: [
+        "一般版（100%）とリベルタ版（50-60%）を並行生成・タブ切替表示",
+        "製造資料: 画面設計+技術スタックからDB設計・API設計・実装順序をMarkdown出力",
+        "Renderリトライ・起動待ち処理でスリープ対策",
+      ],
+      results: [
+        "見積もり・製造資料まで5分で完成",
+        "一般版/リベルタ版の比較で「AI活用の価値」を可視化",
+      ],
+      techDetail: "Next.js + TypeScript + Tailwind CSS。Gemini 2.5 Flash / Claude Haiku 4.5 のデュアルAI構成（SSEストリーミング）。バックエンドはExpress.js（Render）でAI API呼び出しを集約。",
+    },
+  },
+
   {
     slug: "receipt-scanner",
     category: "tools",
