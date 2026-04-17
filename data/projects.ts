@@ -140,12 +140,12 @@ export const projects: Project[] = [
     badgeColor: "#10b981",
     borderColor: "#10b981",
     externalUrl: "https://contract-checker-vert.vercel.app",
-    thumbnail: "/thumbnails/contract-checker.png",
+    thumbnail: "/thumbnails/contract-checker.svg",
     description:
       "契約書をアップロードするだけで、AIが条項ごとにリスクを判定。自動更新・違約金・損害賠償上限なし・知的財産権の全譲渡・競業避止など、フリーランスが見落としがちな不利条項を検出し、具体的な修正案を提示。",
     stats: ["Gemini Vision API", "条項別リスク判定"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "AI活用", "Tailwind CSS"],
-    updatedAt: "2026-04-05",
+    tags: ["Next.js", "TypeScript", "Gemini API", "LangChain", "pdf-to-img", "AI活用", "Tailwind CSS"],
+    updatedAt: "2026-04-13",
     githubRepo: "keita2399/contract-checker",
     detail: {
       overview:
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     badge: "デモ公開中",
     badgeColor: "#059669",
     borderColor: "#059669",
-    thumbnail: "/thumbnails/estimate-ai-stack.png",
+    thumbnail: "/thumbnails/dx-proposal-flow.png",
     screenshots: [],
     description:
       "Excelファイルをアップロードするだけで、AIがシート構造・数式・VBAマクロを読み解き、Webアプリ化またはGAS化の提案と動作するプロトタイプを自動生成。VBA・ActiveXにも対応。",
@@ -289,7 +289,7 @@ export const projects: Project[] = [
     description:
       "ネットワークスキャナー・カメラ・ファイルの3経路でレシートを取り込み、Gemini 2.5 Flashのマルチモーダル機能が単なる文字起こしではなく「文脈を理解して構造化」。30品目超のスーパーレシートも一発で店舗名・税率・勘定科目まで判定。仕分け・Google Drive保存・期間指定CSVで確定申告に直結。",
     stats: ["Gemini 2.5 Flash マルチモーダル", "Chrome拡張+Native Messaging"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "Chrome拡張", "Google Drive API", "eSCL"],
+    tags: ["Next.js", "TypeScript", "Gemini API", "Chrome拡張", "Google Drive API", "Google OAuth", "next-auth", "eSCL"],
     updatedAt: "2026-04-07",
     githubRepo: "keita2399/receipt-scanner",
     detail: {
@@ -326,11 +326,11 @@ export const projects: Project[] = [
     badgeColor: "#6366f1",
     borderColor: "#6366f1",
     externalUrl: "https://ai-document-checker-keita2399s-projects.vercel.app",
-    thumbnail: "/thumbnails/ai-document-checker.png",
+    thumbnail: "/thumbnails/ai-document-checker.svg",
     description:
       "Gemini Vision APIを使った書類自動解析アプリ。画像をアップロードするだけで、AIが書類の種類・記載内容・有効期限・注意点を自動判定。建設業許可証など業務書類の確認を効率化。",
     stats: ["Gemini Vision API", "画像→構造化データ"],
-    tags: ["Next.js", "TypeScript", "Gemini API", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Gemini API", "Claude API", "LangChain", "Tailwind CSS"],
     updatedAt: "2026-03-15",
     githubRepo: "keita2399/ai-document-checker",
     detail: {
