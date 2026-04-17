@@ -73,26 +73,6 @@ export default function Navbar() {
             {l.label}
           </a>
         ))}
-        <a
-          href="https://www.lancers.jp/profile/keita2399"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: "12px",
-            fontWeight: 700,
-            color: "#fff",
-            textDecoration: "none",
-            letterSpacing: "1px",
-            padding: "6px 16px",
-            background: "#2563eb",
-            borderRadius: "4px",
-            transition: "opacity 0.2s",
-          }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-        >
-          Lancers
-        </a>
       </nav>
     </header>
   );
