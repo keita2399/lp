@@ -128,10 +128,13 @@ export default function Hero() {
         {/* CTA */}
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "72px" }}>
           <a
-            href="#contact"
+            href="https://www.lancers.jp/profile/keita2399"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: "inline-flex",
               alignItems: "center",
+              gap: "8px",
               padding: "14px 32px",
               background: "#2563eb",
               color: "#ffffff",
@@ -145,10 +148,10 @@ export default function Hero() {
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.88")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
           >
-            まずは相談する（無料）
+            ランサーズで依頼する
           </a>
           <a
-            href="#works"
+            href="#contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -172,7 +175,7 @@ export default function Hero() {
               (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)";
             }}
           >
-            実績を見る
+            まずは相談する（無料）
           </a>
         </div>
 
