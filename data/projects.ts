@@ -135,7 +135,7 @@ export const projects: Project[] = [
   {
     slug: "contract-checker",
     category: "tools",
-    title: "AI契約書チェッカー",
+    title: "契約書リスクチェッカー",
     badge: "デモ公開中",
     badgeColor: "#10b981",
     borderColor: "#10b981",
@@ -280,7 +280,7 @@ export const projects: Project[] = [
   {
     slug: "receipt-scanner",
     category: "tools",
-    title: "AI 経費仕分けツール",
+    title: "経費仕分けツール",
     badge: "デモ公開中",
     badgeColor: "#f59e0b",
     borderColor: "#f59e0b",
@@ -321,7 +321,7 @@ export const projects: Project[] = [
   {
     slug: "ai-document-checker",
     category: "tools",
-    title: "AI書類分析ツール",
+    title: "AI書類チェッカー",
     badge: "デモ公開中",
     badgeColor: "#6366f1",
     borderColor: "#6366f1",
@@ -533,7 +533,7 @@ export const projects: Project[] = [
 export const legacyProjects: Project[] = [
   {
     slug: "legacy-code-archive",
-    title: "Legacy Code Museum & コード鑑定書",
+    title: "Legacy Code Museum",
     badge: "鑑定書38本",
     badgeColor: "#d4a574",
     borderColor: "#d4a574",
