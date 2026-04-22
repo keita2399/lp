@@ -385,7 +385,7 @@ export const projects: Project[] = [
     badge: "デモ公開中",
     badgeColor: "#3577A6",
     borderColor: "#3577A6",
-    externalUrl: "https://doc-reader-pied.vercel.app",
+    externalUrl: "https://juusetsu-checker.vercel.app",
     thumbnail: "/thumbnails/juusetsu-checker.svg",
     description:
       "不動産書類のPDFをアップロードするだけで、AIが書類の種類を自動判定してリスク・注意点・確認事項を分かりやすく解説。重要事項説明書・賃貸借契約書・登記簿謄本・売買契約書・収支内訳書の5種類に対応。",
