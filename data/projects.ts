@@ -381,7 +381,7 @@ export const projects: Project[] = [
   {
     slug: "juusetsu-checker",
     category: "demo",
-    title: "不動産書類チェッカー",
+    title: "不動産書類 AIガイド",
     badge: "デモ公開中",
     badgeColor: "#3577A6",
     borderColor: "#3577A6",
