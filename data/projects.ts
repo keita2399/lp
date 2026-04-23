@@ -1060,6 +1060,76 @@ export const legacyProjects: Project[] = [
       techDetail: "React + TypeScript。パターンマッチングエンジンを正規表現で再実装。DOCTORスクリプトのルールセットをJSON構造化。",
     },
   },
+  {
+    slug: "real-estate-agent",
+    category: "demo",
+    title: "不動産業務 AIエージェント",
+    badge: "デモ公開中",
+    badgeColor: "#166534",
+    borderColor: "#166534",
+    externalUrl: "https://real-estate-ai-guide.vercel.app",
+    description:
+      "不動産業務に特化したAIチャットエージェント。売買・賃貸・査定・法律・契約の5カテゴリに対応し、質問を入力するだけでGemini 2.5 Flashが回答をカテゴリ分類付きで返す。LangGraph StateGraphでマルチステップ推論フローを管理。",
+    stats: ["5カテゴリ対応", "Gemini 2.5 Flash", "LangGraph StateGraph"],
+    tags: ["Next.js", "TypeScript", "LangChain", "LangGraph", "Gemini API", "Claude API"],
+    updatedAt: "2026-04",
+    detail: {
+      overview:
+        "不動産業務の質問をAIが回答するチャットエージェント。売買・賃貸・査定・法律・契約・その他の6カテゴリに自動分類し、カテゴリバッジ付きで回答を表示。LangGraph StateGraphで推論フローを状態機械として管理し、Gemini 2.5 Flashをメインモデルとして使用。",
+      challenges: [
+        "LangGraph StateGraphによる不動産特化推論フローの設計",
+        "質問内容から売買・賃貸・査定・法律・契約を自動分類するプロンプト設計",
+        "カテゴリバッジ付きのチャットUIの実装",
+      ],
+      approach: [
+        "LangChain @langchain/google-genai でGemini 2.5 Flashを呼び出し",
+        "StateGraphで質問分類→回答生成のフローを管理",
+        "カテゴリ別カラーバッジで視覚的に分類表示",
+      ],
+      results: [
+        "売買・賃貸・査定・法律・その他の5カテゴリに自動分類して回答",
+        "不動産専門知識に特化したプロンプトで精度の高い回答を実現",
+        "LangGraphによる拡張可能なエージェントアーキテクチャを構築",
+      ],
+      techDetail:
+        "Next.js + TypeScript。LangChain（@langchain/google-genai, @langchain/anthropic）+ LangGraph（StateGraph）。Gemini 2.5 Flash を不動産業務特化モデルとして運用。",
+    },
+  },
+  {
+    slug: "real-estate-input",
+    category: "demo",
+    title: "重要事項説明書 AI自動作成",
+    badge: "デモ公開中",
+    badgeColor: "#1e3a5f",
+    borderColor: "#1e3a5f",
+    externalUrl: "https://real-estate-input.vercel.app",
+    description:
+      "登記簿・ハザードマップなどのPDFをアップロードするだけでAIが重要事項説明書のExcelを自動生成するWebアプリ。テンプレート管理画面と作成履歴機能を備え、会社情報をヘッダーに自動挿入。",
+    stats: ["PDF→重説Excel自動生成", "テンプレート管理", "作成履歴機能"],
+    tags: ["Next.js", "TypeScript", "LangChain", "Gemini API", "xlsx", "Tailwind CSS"],
+    updatedAt: "2026-04",
+    detail: {
+      overview:
+        "登記簿・ハザードマップ・都市計画・建築確認などの書類PDFからAIが重要事項説明書のExcelを自動作成するNext.js Webアプリ。メイン画面でPDFをアップロードしてテンプレートを選択するだけで自動入力が完了。テンプレート管理画面でExcelテンプレートのフィールドマッピングを管理し、会社情報モーダルで事務所情報をヘッダーに自動挿入。",
+      challenges: [
+        "複数PDF種別（登記・ハザード・都市計画等）の自動識別とフィールドマッピング",
+        "テンプレート管理画面でのExcelフィールド定義のUI設計",
+        "作成履歴のlocalStorage永続化と復元",
+      ],
+      approach: [
+        "LangChain @langchain/google-genai でGemini APIを呼び出しPDF内容を構造化抽出",
+        "xlsxライブラリでExcelファイルの生成・ダウンロード",
+        "AppShell + Screen切り替えパターンでテンプレート管理とメイン画面をSPA管理",
+      ],
+      results: [
+        "登記簿・ハザードマップ等の書類PDFから重要事項説明書Excelを自動生成",
+        "テンプレート管理画面でフィールドマッピングをGUI操作で設定可能",
+        "作成履歴で過去の出力を管理・再利用できる業務フローを実現",
+      ],
+      techDetail:
+        "Next.js + TypeScript + Tailwind CSS。LangChain（@langchain/google-genai）+ Gemini API。xlsxライブラリでExcel生成。テンプレート・履歴はlocalStorageで永続化。Vercelにデプロイ可能な構成。",
+    },
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
