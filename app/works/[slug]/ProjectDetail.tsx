@@ -18,7 +18,7 @@ function ScreenshotGallery({ screenshots, badgeColor }: { screenshots: { src: st
             onClick={() => setSelected(i)}
             style={{
               cursor: "pointer", border: "1px solid var(--border)", borderRadius: 4,
-              overflow: "hidden", background: "#fff", padding: 0, textAlign: "left",
+              overflow: "hidden", background: "var(--surface)", padding: 0, textAlign: "left",
               transition: "box-shadow 0.2s",
             }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 4px 16px ${badgeColor}22`)}
@@ -27,7 +27,7 @@ function ScreenshotGallery({ screenshots, badgeColor }: { screenshots: { src: st
             <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", background: "#f5f5f5" }}>
               <Image src={ss.src} alt={ss.caption} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
-            <div style={{ padding: "10px 12px", fontSize: 11, color: "var(--text-muted)", lineHeight: 1.5 }}>
+            <div style={{ padding: "10px 12px", fontSize: 11, color: "var(--muted)", lineHeight: 1.5 }}>
               {ss.caption}
             </div>
           </button>
@@ -97,7 +97,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {/* Header */}
       <nav style={{
         position: "sticky", top: 0, zIndex: 100,
-        background: "rgba(250,249,246,0.92)", backdropFilter: "blur(12px)",
+        background: "rgba(15, 23, 42, 0.95)", backdropFilter: "blur(12px)",
         borderBottom: "1px solid var(--border)",
         display: "flex", justifyContent: "space-between", alignItems: "center",
         padding: "0 32px", height: 56,
@@ -108,7 +108,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <Link
           href="/#works"
           className="nav-link"
-          style={{ color: "var(--text-muted)", fontSize: 12, letterSpacing: 1, textDecoration: "none" }}
+          style={{ color: "var(--muted)", fontSize: 12, letterSpacing: 1, textDecoration: "none" }}
         >
           ← 実績一覧に戻る
         </Link>
@@ -121,7 +121,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <div style={{ fontSize: 10, color: project.badgeColor, letterSpacing: 4, marginBottom: 12 }}>
               // PROJECT DETAIL
             </div>
-            <h1 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: 700, color: "#1a1a1a", marginBottom: 12 }}>
+            <h1 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: 700, color: "var(--white)", marginBottom: 12 }}>
               {project.title}
             </h1>
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 20 }}>
@@ -132,7 +132,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 {project.badge}
               </span>
               {project.stats.map((stat, i) => (
-                <span key={i} style={{ fontSize: 12, color: "var(--text-muted)" }}>{stat}</span>
+                <span key={i} style={{ fontSize: 12, color: "var(--muted)" }}>{stat}</span>
               ))}
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -152,10 +152,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Overview */}
         <FadeIn>
           <section style={{ marginBottom: 48 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
               概要
             </h2>
-            <p className="font-serif-jp" style={{ fontSize: 14, color: "var(--text-light)", lineHeight: 2 }}>
+            <p className="font-serif-jp" style={{ fontSize: 14, color: "var(--text)", lineHeight: 2 }}>
               {project.detail.overview}
             </p>
           </section>
@@ -165,7 +165,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {project.screenshots && project.screenshots.length > 0 && (
           <FadeIn>
             <section style={{ marginBottom: 48 }}>
-              <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
+              <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
                 画面イメージ
               </h2>
               <ScreenshotGallery screenshots={project.screenshots} badgeColor={project.badgeColor} />
@@ -176,12 +176,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Challenges */}
         <FadeIn>
           <section style={{ marginBottom: 48 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
               技術的チャレンジ
             </h2>
             <ul style={{ listStyle: "none", padding: 0 }}>
               {project.detail.challenges.map((item, i) => (
-                <li key={i} style={{ display: "flex", gap: 12, marginBottom: 12, fontSize: 13, color: "var(--text-light)", lineHeight: 1.7 }}>
+                <li key={i} style={{ display: "flex", gap: 12, marginBottom: 12, fontSize: 13, color: "var(--text)", lineHeight: 1.7 }}>
                   <span style={{ color: project.badgeColor, fontWeight: 700, flexShrink: 0 }}>▸</span>
                   {item}
                 </li>
@@ -193,15 +193,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Approach */}
         <FadeIn>
           <section style={{ marginBottom: 48 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
               アプローチ
             </h2>
             <div style={{ display: "grid", gap: 16 }}>
               {project.detail.approach.map((item, i) => (
                 <div key={i} style={{
                   display: "flex", gap: 16, padding: "16px 20px",
-                  background: "#fff", border: "1px solid var(--border)", borderRadius: 4,
-                  fontSize: 13, color: "var(--text-light)", lineHeight: 1.7,
+                  background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 4,
+                  fontSize: 13, color: "var(--text)", lineHeight: 1.7,
                 }}>
                   <span style={{
                     color: "#fff", background: project.badgeColor,
@@ -221,11 +221,11 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Results */}
         <FadeIn>
           <section style={{ marginBottom: 48 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
               成果
             </h2>
             <div style={{
-              padding: 24, background: "#fff", border: "1px solid var(--border)",
+              padding: 24, background: "var(--surface)", border: "1px solid var(--border)",
               borderLeft: `4px solid ${project.borderColor}`, borderRadius: 4,
             }}>
               <ul style={{ listStyle: "none", padding: 0 }}>
@@ -243,7 +243,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Tech Detail */}
         <FadeIn>
           <section style={{ marginBottom: 48 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
               技術スタック詳細
             </h2>
             <div style={{
@@ -263,7 +263,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 <div style={{ fontSize: 10, color: project.badgeColor, letterSpacing: 4, marginBottom: 20 }}>
                   // DESIGN DOCUMENT
                 </div>
-                <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
+                <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: `2px solid ${project.borderColor}` }}>
                   アーキテクチャ
                 </h2>
                 <div style={{
@@ -278,15 +278,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
             <FadeIn>
               <section style={{ marginBottom: 48 }}>
-                <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+                <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
                   処理フロー
                 </h2>
                 <div style={{ display: "grid", gap: 12 }}>
                   {project.detail.designDoc.dataFlow.map((item, i) => (
                     <div key={i} style={{
                       display: "flex", gap: 16, padding: "14px 20px",
-                      background: "#fff", border: "1px solid var(--border)", borderRadius: 4,
-                      fontSize: 13, color: "var(--text-light)", lineHeight: 1.7,
+                      background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 4,
+                      fontSize: 13, color: "var(--text)", lineHeight: 1.7,
                     }}>
                       <span style={{
                         color: "#fff", background: project.badgeColor,
@@ -306,16 +306,16 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {project.detail.designDoc.apiSpecs && (
               <FadeIn>
                 <section style={{ marginBottom: 48 }}>
-                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
                     API仕様
                   </h2>
                   <div style={{ overflowX: "auto" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                       <thead>
                         <tr style={{ borderBottom: `2px solid ${project.borderColor}` }}>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>メソッド</th>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>パス</th>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>説明</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>メソッド</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>パス</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>説明</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -332,7 +332,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                             <td style={{ padding: "10px 12px", fontFamily: "inherit", color: "var(--text)" }}>
                               {api.path}
                             </td>
-                            <td style={{ padding: "10px 12px", color: "var(--text-light)" }}>
+                            <td style={{ padding: "10px 12px", color: "var(--text)" }}>
                               {api.description}
                             </td>
                           </tr>
@@ -347,7 +347,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {project.detail.designDoc.dataModels && (
               <FadeIn>
                 <section style={{ marginBottom: 48 }}>
-                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
                     データモデル
                   </h2>
                   <div style={{
@@ -364,16 +364,16 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {project.detail.designDoc.envVars && (
               <FadeIn>
                 <section style={{ marginBottom: 48 }}>
-                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
+                  <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--white)", marginBottom: 16, paddingBottom: 8, borderBottom: "2px solid #ddd" }}>
                     環境変数
                   </h2>
                   <div style={{ overflowX: "auto" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                       <thead>
                         <tr style={{ borderBottom: `2px solid ${project.borderColor}` }}>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>変数名</th>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>必須</th>
-                          <th style={{ textAlign: "left", padding: "8px 12px", color: "#1a1a1a", fontWeight: 600 }}>説明</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>変数名</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>必須</th>
+                          <th style={{ textAlign: "left", padding: "8px 12px", color: "var(--white)", fontWeight: 600 }}>説明</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -392,7 +392,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                                 {env.required ? "必須" : "任意"}
                               </span>
                             </td>
-                            <td style={{ padding: "10px 12px", color: "var(--text-light)" }}>
+                            <td style={{ padding: "10px 12px", color: "var(--text)" }}>
                               {env.description}
                             </td>
                           </tr>
@@ -414,7 +414,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               style={{
                 display: "inline-block", padding: "12px 28px",
                 border: "1px solid var(--border)", borderRadius: 2,
-                color: "var(--text-muted)", fontSize: 12, letterSpacing: 2,
+                color: "var(--muted)", fontSize: 12, letterSpacing: 2,
                 textDecoration: "none", transition: "all 0.2s",
               }}
             >
